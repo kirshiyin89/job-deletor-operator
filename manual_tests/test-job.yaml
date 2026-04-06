@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-job-old
+  namespace: default
+  labels:
+    app: cleanup-eligible
+spec:
+  template:
+    spec:
+      containers:
+      - name: hello
+        image: busybox
+        command: ["sh", "-c", "echo 'Hello World!' && sleep 5"]
+      restartPolicy: Never
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 86400

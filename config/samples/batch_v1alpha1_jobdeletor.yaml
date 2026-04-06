@@ -1,0 +1,20 @@
+apiVersion: batch.curiousdevscorner.org/v1alpha1
+kind: JobDeletor
+metadata:
+  name: jobdeletor-sample
+spec:
+  # Delete jobs older than 2 mins
+  maxAge: 1m
+
+  # Check every 1 min
+  checkIntervalSeconds: 60
+
+  # Watch these namespaces (empty = all namespaces)
+  namespaces:
+    - default
+    - test
+
+  # Optional: Only delete jobs with these labels
+  selector:
+    app: cleanup-eligible
+
