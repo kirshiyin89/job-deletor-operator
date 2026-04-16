@@ -25,7 +25,7 @@ import (
 type JobDeletorSpec struct {
 	// MaxAge defines how old a Job can be before deletion
 	// Example values: "10m", "2h", "7d"
-	// +kubebuilder:validation:Pattern=`^[0-9]+(s|m|h)$`
+	// +kubebuilder:validation:Pattern=`^[0-9]+(s|m|h|d)$`
 	MaxAge string `json:"maxAge"`
 
 	// Namespaces is the list of namespaces to watch for Jobs
@@ -83,6 +83,7 @@ type JobDeletorStatus struct {
 }
 
 // +kubebuilder:object:root=true
+// +kubebuilder:storageversion
 // +kubebuilder:subresource:status
 // +kubebuilder:resource:scope=Cluster
 // +kubebuilder:printcolumn:name="Phase",type=string,JSONPath=`.status.phase`

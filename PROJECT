@@ -6,6 +6,10 @@ cliVersion: 4.11.1
 domain: curiousdevscorner.org
 layout:
 - go.kubebuilder.io/v4
+plugins:
+  helm.kubebuilder.io/v2-alpha:
+    manifests: dist/install.yaml
+    output: dist
 projectName: jobdeletor-operator
 repo: github.com/kirshiyin89/jobdeletor-operator
 resources:
@@ -18,4 +22,17 @@ resources:
   kind: JobDeletor
   path: github.com/kirshiyin89/jobdeletor-operator/api/v1alpha1
   version: v1alpha1
+  webhooks:
+    conversion: true
+    spoke:
+    - v1beta1
+    webhookVersion: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  domain: curiousdevscorner.org
+  group: batch
+  kind: JobDeletor
+  path: github.com/kirshiyin89/jobdeletor-operator/api/v1beta1
+  version: v1beta1
 version: "3"

@@ -77,7 +77,7 @@ func (r *JobDeletorReconciler) Reconcile(ctx context.Context, req ctrl.Request) 
 	}
 
 	// refetch the jobdeletor to ensure we work with a fresh copy
-	if err := r.Get(ctx, req.NamespacedName, &batchv1alpha1.JobDeletor{}); err != nil {
+	if err := r.Get(ctx, req.NamespacedName, jobDeletor); err != nil {
 		logger.Error(err, "Failed to re-fetch JobDeletor")
 		return ctrl.Result{}, err
 	}
