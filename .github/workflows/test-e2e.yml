@@ -16,12 +16,6 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-      
-      - name: Setup Github credentials
-        uses: actions/checkout@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          persist-credentials: true
 
       - name: Install the latest version of kind
         run: |
