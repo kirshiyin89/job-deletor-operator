@@ -64,7 +64,6 @@ func TestDeleteOldJobs(t *testing.T) {
 	reconciler := &JobDeletorReconciler{
 		Client: fakeClient,
 		Scheme: scheme,
-		Recorder: record.NewFakeRecorder(100),
 	}
 
 	deleted, err := reconciler.deleteOldJobs(context.Background(), jobDeletor)
