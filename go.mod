@@ -98,3 +98,8 @@ require (
 	sigs.k8s.io/structured-merge-diff/v6 v6.3.2-0.20260122202528-d9cc6641c482 // indirect
 	sigs.k8s.io/yaml v1.6.0 // indirect
 )
+
+replace (
+	github.com/kirshiyin89/jobdeletor-operator/api/v1beta1 => ./api/v1beta1
+	github.com/kirshiyin89/jobdeletor-operator/internal/webhook/v1alpha1 => ./internal/webhook/v1alpha1
+)
