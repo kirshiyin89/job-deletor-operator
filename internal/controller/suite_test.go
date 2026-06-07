@@ -35,6 +35,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	batchv1alpha1 "github.com/kirshiyin89/jobdeletor-operator/api/v1alpha1"
+	batchv1beta1 "github.com/kirshiyin89/jobdeletor-operator/api/v1beta1" 
 	// +kubebuilder:scaffold:imports
 )
 
@@ -60,7 +61,7 @@ var _ = BeforeSuite(func() {
 	err = batchv1alpha1.AddToScheme(scheme.Scheme)
 	Expect(err).NotTo(HaveOccurred())
 
-	err = batchv1alpha1.AddToScheme(scheme.Scheme)
+	err = batchv1beta1.AddToScheme(scheme.Scheme)
 	Expect(err).NotTo(HaveOccurred())
 
 	// +kubebuilder:scaffold:scheme
