@@ -36,9 +36,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
 	batchv1alpha1 "github.com/kirshiyin89/jobdeletor-operator/api/v1alpha1"
-	batchv1beta1 "github.com/kirshiyin89/jobdeletor-operator/api/v1beta1"
 	"github.com/kirshiyin89/jobdeletor-operator/internal/controller"
-	webhookv1alpha1 "github.com/kirshiyin89/jobdeletor-operator/internal/webhook/v1alpha1"
+	webhookv1alpha1 "github.com/kirshiyin89/jobdeletor-operator/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -50,7 +49,6 @@ var (
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 	utilruntime.Must(batchv1alpha1.AddToScheme(scheme))
-	utilruntime.Must(batchv1beta1.AddToScheme(scheme))
 	// +kubebuilder:scaffold:scheme
 }
 
