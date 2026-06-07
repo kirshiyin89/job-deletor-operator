@@ -100,6 +100,6 @@ require (
 )
 
 replace (
-	github.com/kirshiyin89/jobdeletor-operator/api/v1beta1 => ./api/v1beta1
-	github.com/kirshiyin89/jobdeletor-operator/internal/webhook/v1alpha1 => ./internal/webhook/v1alpha1
+	github.com/kirshiyin89/jobdeletor-operator/api/v1beta1 => ./api/v1alpha1
+	github.com/kirshiyin89/jobdeletor-operator/internal/webhook/v1alpha1 => ./internal/controller
 )
