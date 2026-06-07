@@ -37,7 +37,6 @@ import (
 
 	batchv1alpha1 "github.com/kirshiyin89/jobdeletor-operator/api/v1alpha1"
 	"github.com/kirshiyin89/jobdeletor-operator/internal/controller"
-	webhookv1alpha1 "github.com/kirshiyin89/jobdeletor-operator/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -187,10 +186,12 @@ func main() {
 	}
 	// nolint:goconst
 	if os.Getenv("ENABLE_WEBHOOKS") != "false" {
-		if err := webhookv1alpha1.SetupJobDeletorWebhookWithManager(mgr); err != nil {
-			setupLog.Error(err, "unable to create webhook", "webhook", "JobDeletor")
-			os.Exit(1)
-		}
+		setupLog.Info("Webhook support not yet implemented")
+		// TODO: Implement webhook setup when webhook handlers are added
+		// if err := webhookv1alpha1.SetupJobDeletorWebhookWithManager(mgr); err != nil {
+		// 	setupLog.Error(err, "unable to create webhook", "webhook", "JobDeletor")
+		// 	os.Exit(1)
+		// }
 	}
 	// +kubebuilder:scaffold:builder
 
